@@ -22,53 +22,61 @@ Examples:
 
 #include <stdlib.h>
 
-int *ft_range(int start, int end)
+int     *ft_rrange(int start, int end)
 {
-	int i = 0;
-	int len = abs((end - start)) + 1;
-	int *res = (int *)malloc(sizeof(int) * len);
-	
+	int	len;
+	int *arr;
+	int	i = 0;
+
+	if (start <= end)
+		len = end - start + 1;
+	else
+		len = start - end + 1;
+	arr = (int *)malloc(sizeof(int) * len);
+	if (arr == NULL)
+		return (NULL);
+
 	while (i < len)
 	{
 		if (start < end)
 		{
-			res[i] = start + len - 1;//the difference between ft_range/ + len - 1
+			arr[i] = start + len - 1;//the difference between ft_range/ + len - 1
 			start--;//--
 			i++;
 		}
 		else//this case stays the same
 		{
-			res[i] = start;
+			arr[i] = start;
 			start--;
 			i++;
 		}
 	}
-        return (res);
+	return (arr);
 }
 
-#include <stdio.h>
+// #include <stdio.h>
 
-int main(int ac, char **av)
-{
-    if (ac == 3)
-    {
-        int *result;
-        int start = atoi(av[1]);
-        int end = atoi(av[2]);
-        int len = abs(end - start) + 1;
-        int i;
+// int	main(int ac, char **av)
+// {
+// 	if (ac == 3)
+// 	{
+// 		int	start = atoi(av[1]);
+// 		int	end = atoi(av[2]);
+// 		int	*result;
+// 		int	len = abs(start - end) + 1;
+// 		int	i;
 
-        result = ft_range(start, end);
-        for (i = 0; i < len; i++)
-        {
-            printf("%d ", result[i]);
-            // if (i < len - 1)//for commas
-            // {
-            //     printf(", ");
-            // }
-        }
-        printf("\n");
-		free(result);  // free memory
-    }
-    return (0);
-}
+// 		result = ft_rrange(start, end);
+// 		for (i = 0; i < len; i++)
+// 		{
+// 			printf("%d ", result[i]);
+// 			// if (i < len - 1)//for commas
+// 			// {
+// 			// 	printf(", ");
+// 			// }
+// 		}
+// 	printf("\n");
+// 	free(result);//free memory used for result
+// 	}
+// 	return (0);
+// }
