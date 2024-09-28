@@ -66,7 +66,7 @@ int     *ft_range(int start, int end)
 //         int *result;
 //         int start = atoi(av[1]);
 //         int end = atoi(av[2]);
-//         int len = abs(end - start) + 1;
+//         int len = abs(end - start) + 1; //abs is alternative way of calculating length no matter sign
 //         int i;
 
 //         result = ft_range(start, end);
@@ -78,8 +78,8 @@ int     *ft_range(int start, int end)
 //             //     printf(", ");
 //             // }
 //         }
-//         printf("\n");
-// 		free(result);  // free memory
+//      printf("\n");
+// 	free(result);  // free memory
 //     }
 //     return (0);
 // }
