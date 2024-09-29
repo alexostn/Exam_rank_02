@@ -11,8 +11,6 @@ void ft_putnbr(int n)
 
 // FOR 16: (YOU WILL USE IT IN ATOI BASE):
 
-// #include <stdlib.h>
-
 // void	putnbr(int n)
 // {
 // 	char	*base = "0123456789abcdef";
