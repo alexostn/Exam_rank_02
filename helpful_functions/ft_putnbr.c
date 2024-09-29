@@ -14,7 +14,7 @@ void ft_putnbr(int n)
 // {
 // 	char *c = "0123456789abcdfg";
 
-// 	if (n > 10)
+// 	if (n >= 16)
 // 		putnbr(n / 16);
 // 	write(1, &c[n % 16], 1);
 // }
