@@ -39,12 +39,10 @@ int	main(int ac, char **av)
 		int	i = 0;
 		int	j = 0;
 
-		while (s1[i] != '\0' && s2[j] != '\0')//that also works in this case "Also, the empty string is hidden in any string. "  ./hidenp "" "anystring" | cat -e because s1[i] == '/0'
+		while (s1[i] != '\0' && s2[j] != '\0')//that also works in this case: "Also, the empty string is hidden in any string. "  ./hidenp "" "anystring" | cat -e because s1[i] == '/0'
 		{
 			if (s1[i] == s2[j])
-			{
-				i++;
-			}
+				i++;			
 			j++;
 		}
 		if (s1[i] == '\0') // ./hidenp "" "anystring" | cat -e because s1[i] == '/0'
