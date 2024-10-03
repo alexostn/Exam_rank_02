@@ -42,10 +42,10 @@ int	main(int ac, char **av)
 		while (s1[i] != '\0' && s2[j] != '\0')//that also works in this case: "Also, the empty string is hidden in any string. "  ./hidenp "" "anystring" | cat -e because s1[i] == '/0'
 		{
 			if (s1[i] == s2[j])
-				i++;			
+				i++;
 			j++;
 		}
-		if (s1[i] == '\0') // ./hidenp "" "anystring" | cat -e because s1[i] == '/0'
+		if (s1[i] == '\0')// ./hidenp "" "anystring" | cat -e because s1[i] == '/0'
 			write(1, "1", 1);
 		else if (s1[i] != '\0')
 			write(1, "0", 1);
@@ -53,3 +53,4 @@ int	main(int ac, char **av)
 	write(1, "\n", 1);
 	return (0);
 }
+
