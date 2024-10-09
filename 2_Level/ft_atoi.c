@@ -17,7 +17,7 @@ int	ft_atoi(const char *str)
 int  result = 0;
 int  sign = 1;
 
-while (*str <= 32)
+while (*str <= 32)// tabs skip in ASCII
   str++;
 if (*str == '-')
   sign = -1;
