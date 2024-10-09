@@ -12,6 +12,8 @@ Your function must be declared as follows:
 
 int	ft_atoi(const char *str);
 */
+// #include <limits.h>//OVERFLOW CHECK
+
 int	ft_atoi(const char *str)
 {
 int  result = 0;
@@ -26,11 +28,11 @@ if (*str == '-' || *str == '+')//only one time, that's why 'if'
 while (*str >= '0' && *str <= '9')
 	{
 	result = result * 10 + *str++ - 48;
-		// Overflow check
-	if (result * sign > INT_MAX)
-		return INT_MAX;
-	if (result * sign < INT_MIN)
-		return INT_MIN;
+	// 	// Overflow check
+	// if (result * sign > INT_MAX)
+	// 	return INT_MAX;
+	// if (result * sign < INT_MIN)
+	// 	return INT_MIN;
 	}
 return (result * sign);
 }
