@@ -31,12 +31,12 @@ int	main (int ac, char **av)
 		int	i = 0;
 		while (av[1][i])
 		{
-			char	c = av[1][i];
+			char	c = av[1][i]; //initialize char c inside loop
 			if (c >= 'A' && c <= 'Z')
 				c = c + 32;
 			else if (c >= 'a' && c <= 'z')
 				c = c - 32;
-			write(1, &c, 1);
+			write(1, &c, 1);//write one time only
 			i++;
 		}
 	}
