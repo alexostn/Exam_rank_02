@@ -51,8 +51,10 @@ int	ft_atoi(char *str)
 	// Skip spaces and control characters
 	while (*str <= 32)
 		str++;
+	if (*str == '-')
+		sign = -1;
 	// Skip the '+' sign if it exists
-	if (*str == '+')
+	if (*str == '+' || *str == '-')
 		str++;
 	// While the characters are digits, convert them to a number
 	while (*str >= '0' && *str <= '9')
