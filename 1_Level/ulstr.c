@@ -66,4 +66,37 @@ int	main(int ac, char **av)
 	write(1, "\n", 1);
 	return (0);
 }
+ONE MORE ALTERNATIVE 
+// #include <unistd.h>
+
+// int	main (int ac, char **av)
+// {
+//     if (ac == 2)
+//     {
+//         char *c = av[1];
+//         char temp;
+
+//         while (*c)
+//         {
+//             temp = *c;//because you need to work with char not with pointer
+//             if (*c >= 'A' && *c <= 'Z')
+//             {
+//                 temp = *c + 32;//because you need to work with char not with pointer
+//                 write(1, &temp, 1);
+//             }
+//             else if(*c >= 'a' && *c <= 'z')
+//             {
+//                 temp = *c - 32;//because you need to work with char not with pointer
+//                 write(1, &temp, 1);
+//             }
+//             else
+//                 write(1, &temp, 1);
+//             c++;
+//         }
+//         write(1, "\n", 1);
+//     }
+//     else
+//         write(1, "\n", 1);
+//     return (0);
+// }
 */
