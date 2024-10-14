@@ -22,7 +22,7 @@ int	ft_atoi_base(const char *str, int str_base);
 */
 int	is_base(char c, int base)
 {
-	return((c >= '0' && c <= '0' + base -1)
+	return((c >= '0' && c <= '9' + base -1)
 		||(c >= 'a' && c <= 'f' + base - 11)
 		||(c >= 'A' && c <= 'F' + base - 11));
 }
@@ -33,13 +33,13 @@ int	ft_atoi_base(const char *str, int str_base)
 	int	sign = 1;
 	//int	i = 0;
 
-	while (*str <= 32)//skip tabs
+	while (*str <= 32)
 		str++;
 	if (*str == '-')
 		sign = -1;
 	if (*str == '-'||*str == '+')
 		str++;
-	while (*str)
+	while (*str)//here we check each symbol of the string one by one, sending it to is_base in if under...
 	{
 		if (is_base(*str, str_base))// Using the is_in_base function to check if the character belongs to the base
 		{
@@ -72,5 +72,5 @@ int	ft_atoi_base(const char *str, int str_base)
 //     printf("ft_atoi_base(\"12\", 8) = %d\n", ft_atoi_base("12", 8));      // 10
 //     printf("ft_atoi_base(\"   101\", 2) = %d\n", ft_atoi_base("   101", 2)); // 5
 
-//     return 0;
+//     return (0);
 // }
