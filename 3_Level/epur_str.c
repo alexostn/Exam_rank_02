@@ -39,7 +39,7 @@ int	main(int ac, char **av)
 		while (av[1][i] <= 32)
 			i++;
 
-		while (av[1][i] != 0)
+		while (av[1][i])
 		{
 			// If the current character is not a space or tab
 			if (av[1][i] > 32)
