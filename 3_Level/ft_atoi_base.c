@@ -33,7 +33,7 @@ int	ft_atoi_base(const char *str, int str_base)
 	int	sign = 1;
 	//int	i = 0;
 
-	while (*str < 32)
+	while (*str <= 32)
 		str++;
 	if (*str == '-')
 		sign = -1;
