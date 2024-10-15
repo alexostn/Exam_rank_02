@@ -40,14 +40,14 @@ int     *ft_range(int start, int end)
 	arr = (int *)malloc((sizeof (int) * length));
 	if (arr == NULL)
 		return (NULL);
-	if (start < end)
+	if (start <= end)
 		while (start <= end)
 		{
 			arr[i] = start;
 			start++;
 			i++;
 		}
-	else if (start > end)
+	else if (start >= end)
 		while (start >= end)
 		{
 			arr[i] = start;
