@@ -14,9 +14,8 @@ void	ft_swap(int *a, int *b);
 
 void	ft_swap(int *a, int *b)
 	{
-		int	c = *a;//only c is int(not a pointer)
-
-    *a = *b;
+	int	 c = *a;//only c is int(not a pointer)
+		*a = *b;
 		*b = c;
 	}
 
