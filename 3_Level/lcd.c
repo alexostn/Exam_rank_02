@@ -60,6 +60,8 @@ unsigned int    lcm(unsigned int a, unsigned int b)
 // 	}
 // 	return (0);
 //  }
+
+/*BRUTE FORCE METHOD*/
 unsigned int	lcm(unsigned int a, unsigned int b)
 {
 	if (a == 0 || b == 0)
