@@ -22,9 +22,9 @@ int	ft_atoi_base(const char *str, int str_base);
 */
 int	is_base(char c, int base)
 {
-	return((c >= '0' && c <= '9' + base -1)
-		||(c >= 'a' && c <= 'f' + base - 11)
-		||(c >= 'A' && c <= 'F' + base - 11));
+	return((c >= '0' && c <= '0' + base -1)//begin 0 brings shift -1 (0123456789) 
+		||(c >= 'a' && c <= 'a' + base - 11)//calculates if number is in base in case of 'a'(97) + base 16 - 11 = 97+16-11 = 102('f')highest possible value
+		||(c >= 'A' && c <= 'A' + base - 11));
 }
 
 int	ft_atoi_base(const char *str, int str_base)
