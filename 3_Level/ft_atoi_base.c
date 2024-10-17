@@ -45,13 +45,13 @@ int	ft_atoi_base(const char *str, int str_base)
 		{
 			if (*str >= '0' && *str <= '9')
 				result = result * str_base + *str - '0';
-			if (*str >= 'a' && *str <= 'f')
+			else if (*str >= 'a' && *str <= 'f')
 				result = result * str_base + *str - 'a' + 10;
-			if (*str >= 'A' && *str <= 'F')
+			else if (*str >= 'A' && *str <= 'F')
 				result = result * str_base + *str - 'A' + 10;
 		}
 		else
-			break;
+			return (0);
 		str++;
 	}
 	return (result * sign);
