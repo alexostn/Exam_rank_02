@@ -41,46 +41,58 @@ void write_word(char *start, char *end)
 	while (start < end)
 	{
 		write(1, start, 1);
-			start++;
+		start++;
 	}
 }
 
-int	main(int ac, char **av)
+int main(int argc, char **argv)
 {
-	if (ac > 1)
-	{
-		char *str;
-		char *f_w_start;
-		char *f_w_end;
+	char *str;
+	char *first_word_start;
+	char *first_word_end;
 
-		str = av[1];
-		while (*str <= 32)
+	if (argc > 1)
+	{
+		str = argv[1];
+		
+		while (*str == ' ' || *str == '\t') 
 			str++;
-		f_w_start = str;
-		while (*str > 32)
+
+		first_word_start = str;
+
+		while (*str && *str != ' ' && *str != '\t')
 			str++;
-		f_w_end = str;
-		while (*str <= 32)//first_tab_skip
+
+		first_word_end = str;
+
+		while (*str == ' ' || *str == '\t')
 			str++;
+
 		if (*str)
 		{
 			while (*str)
 			{
-				if (*str <= 32)
+				if (*str == ' ' || *str == '\t')
 				{
-					while (*str <= 32)
+					while (*str == ' ' || *str == '\t')
 						str++;
-					if(*str)//SPACE |
+					if (*str)
 						write(1, " ", 1);
-				}
-				else
+				} 
+				else 
 				{
-					write(1, str,1);
-					str++;// inside else
+					write(1, str, 1);
+					str++;
 				}
 			}
-			write(1, " ", 1);//SPACE ||
+			write(1, " ", 1);
 		}
-		write_word(f_w_start, f_w_end);
+		
+		write_word(first_word_start, first_word_end);
 	}
+	
+	write(1, "\n", 1);
+	
+	return (0);
 }
+
