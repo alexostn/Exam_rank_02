@@ -1,4 +1,4 @@
-//Recursive approach: The current implementation will work, but if the list is empty, it may cause an error
+//Recursive approach:
 
 #include "ft_list.h"
 
