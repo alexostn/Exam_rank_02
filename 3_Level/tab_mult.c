@@ -38,78 +38,58 @@ $>./tab_mult | cat -e
 $
 $>
 */
+
 #include <unistd.h>
 
-// Function to convert a string to an integer
-int	ft_atoi(char *str)
-{
-	int	result; // Variable to store the result
-	int	sign;   // Variable to store the sign of the number (in this case, it is always positive)
 
-	result = 0;
-	sign = 1;  // Default sign is positive
-	// Skip spaces and control characters
-	while (*str <= 32)
-		str++;
-	if (*str == '-')
-		sign = -1;
-	// Skip the '+' sign if it exists
-	if (*str == '+' || *str == '-')
-		str++;
-	// While the characters are digits, convert them to a number
-	while (*str >= '0' && *str <= '9')
+int	ft_atoi(char *ch)
 	{
-		// Increase the value of the number: multiply by 10 and add the current digit
-		result = result * 10 + *str - '0';
-		str++;
+		int res = 0;//do not forget initialize, that matters!!!
+
+		while (*ch <= 32)
+			ch++;
+		// if (*ch == '+' || *ch == '-') unnecessary as we checked it in main already
+		// 	ch++;
+		while (*ch >= '0' && *ch <= '9')
+			res = res * 10 + *ch++ - 48;
+
+		return (res);
 	}
-	// Return the result multiplied by the sign (in this case, the sign is always +1)
-	return (sign * result);
-}
 
-// Function to output a single character
-#include <unistd.h>
-
-void	ft_putchar(char c) {
+void putchar(char c)
+{
 	write(1, &c, 1);
 }
 
-void	ft_putnbr(int nb) {
-	if (nb < 0) {
-		ft_putchar('-');
-		nb = -nb;
-	}
-	if (nb >= 10) {
-		ft_putnbr(nb / 10);
-		nb = nb % 10;
-	}
-	if (nb < 10) ft_putchar(nb + 48);
+void putnum(int num)
+{
+	if (num >= 10)
+		putnum (num / 10);
+	putchar(num % 10 + 48);	
 }
 
-// Main function of the program
-int	main(int argc, char *argv[])
+int	main(int ac, char **av)
 {
-	int	i;    // Counter for the loop
-	int	nbr;  // Variable to store the number passed in the argument
-
-	// If the number of arguments is not equal to 2, just output a new line
-	if (argc != 2)
-		write(1, "\n", 1);
-	else
+	if (ac == 2)
 	{
-		i = 1; // Start the loop from 1
-		nbr = ft_atoi(argv[1]); // Convert the command line argument to a number
-		// Loop to output the multiplication table, from 1 to 9
-		while (i <= 9 && nbr <= 238609183) // Check that nbr is <= 238609183 (MAX_INT / 9) to avoid overflow
+		int i = 1;
+		int num = ft_atoi(av[1]);
+		if (num > 0)//"parameter will always be a strictly positive number"
 		{
-			ft_putnbr(i);           // Output the current value of i (the multiplier)
-			write(1, " x ", 3);      // Output the characters " x "
-			ft_putnbr(nbr);          // Output the number passed in the argument
-			write(1, " = ", 3);      // Output the characters " = "
-			ft_putnbr(i * nbr);      // Output the result of the multiplication
-			write(1, "\n", 1);       // Output a new line
-			i++;                  // Increment the value of i
+			while (i <= 9 && num <= 238609183)
+			{
+				putnum(i);
+				write(1, " x ", 3);
+				putnum(num);
+				// write(1, &av[1], 1);that will not work correctly, but putnum(num); will
+				write(1, " = ", 3);
+				putnum(i * num);
+				if (i < 9)// Only write a newline if it's not the last line
+					write(1, "\n", 1);
+				i++;
+			}
 		}
 	}
-	return (0); // End the program execution
+	write(1, "\n", 1);
+	return (0);
 }
