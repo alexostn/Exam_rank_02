@@ -74,9 +74,9 @@ int	main(int ac, char **av)
 	{
 		int i = 1;
 		int num = ft_atoi(av[1]);
-		if (num > 0)//"parameter will always be a strictly positive number"
+		if (num > 0 && num <= 238609183)//"parameter will always be a strictly positive number && that fits in an int (MAX_INT devided by 9)"
 		{
-			while (i <= 9 && num <= 238609183)//MAX_INT devided by 9
+			while (i <= 9)
 			{
 				putnum(i);
 				write(1, " x ", 3);
