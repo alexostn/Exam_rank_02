@@ -38,6 +38,8 @@ int	main(int ac, char *av[])
 
 		putnum(ac - 1);
 	}
+	else if (ac <= 1)
+		write(1, "0", 1);//"If there are no arguments, just display a 0 followed by a newline."
 	write(1, "\n", 1);
 	return (0);
 }
