@@ -27,45 +27,35 @@ __second Test A Little Bit   Moar Complex$
      Okay, This Is The Last 1239809147801 But Not    The Least    T$
 $>
 */
-
 #include <unistd.h>
 
-void str_capitalize(char *str)
+void str_capitalizer (char *str)
 {
-	int i = 0;
-
-	// Processing the first character
-	while (str[i] <= 32) // Skip spaces and tabs
-		i++;
-	if (str[i] >= 'a' && str[i] <= 'z')
-		str[i] -= 32; // Capitalize the first character
-	write(1, &str[i], 1);
-	i++;//one step forward DO NOT FORGET!!!
-
-	// Processing the remaining characters
-	while (str[i])
-	{
-		if (str[i] >= 'A' && str[i] <= 'Z')
-			str[i] += 32; // Convert to lowercase
-		if ((str[i] >= 'a' && str[i] <= 'z') && (str[i - 1] == ' ' || str[i - 1] == '\t'))
-			str[i] -= 32; // Capitalize the first letter after a space or tab
-		write(1, &str[i], 1);
-		i++;
-	}
+    int i = 0;
+    while (str[i])
+    {
+        if (str[i] >= 'A' && str[i] <= 'Z')
+            str[i] = str[i] + 32;
+        if ((str[i] >= 'a' && str[i] <= 'z') && str[i - 1] <= 32)// if goes out of array try && (i == 0 || str[i - 1] <= 32))
+            str[i] = str[i] - 32;
+        write (1, &str[i++], 1);
+    }
 }
 
-int main(int ac, char **av)
+int main (int ac, char **av)
 {
-	if (ac > 1)
-	{
-		int i = 1;
-		while (i < ac)
-		{
-			str_capitalize(av[i]);
-			write(1, "\n", 1); // Move to a new line after each argument
-			i++;
-		}
-	}
-	write(1, "\n", 1); // If there were no arguments, output a new line
-	return (0);
+    if (ac > 1)
+    {
+        int i = 1;
+        while (i < ac)
+        {
+            str_capitalizer(av[i]);
+            write (1, "\n", 1);
+            i++;
+        }
+    }
+	else if (ac == 1)//if it is not needed remove
+		write(1, "\n", 1);
+    write (1, "\n", 1);
+    return (0);
 }
