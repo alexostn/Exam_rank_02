@@ -26,7 +26,7 @@ char	*ft_itoa(int n)
 		len++;
 	while(num != 0)
 	{
-		num = num / 10;
+		num = num / 10;//divide / 10 to know length
 		len++;
 	}
 	res = (char*)malloc(sizeof(char) * (len + 1));// +1 for '/0'
@@ -35,9 +35,9 @@ char	*ft_itoa(int n)
 	res[len] = '\0';
 	num = n;//actualizinng num after length manipulation
 
-	if (n == 0)
+	if (n == 0)//!!! check integers not chars
 		res[0] = '0';
-	if (n < 0)
+	if (n < 0)//!!! check integers not chars
 	{
 		num = -num;
 		res[0] = '-';//writing '-' symbol to our string array
