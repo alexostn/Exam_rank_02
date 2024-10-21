@@ -11,33 +11,48 @@ Your function must be declared as follows:
 
 char	*ft_itoa(int nbr);
 */
+//1 	num
+	// 	len
+	// *res
+//2 INT_MIN
+//3.1	length calculation '-' '0' case one step
+//3.2	length calculation
+//4 res = (char *)malloc + 1
+//4.2 check if res NULL return NULL
+//5	res[len] = '\0'
+//6	reinitialize num after len manipulation
+//7 if n == 0
+//8 if n == '-'
+//9 return(res);
+
+
 
 #include <stdlib.h>
 
-char	*ft_itoa(int n)
+char	*ft_itoa(int nbr)
 {
-	int	num = n;//needed to do not change "n"
+	int	num = nbr;//needed to do not change "nbr" DO ALL MANIPULATIONS WITH num!!!
 	int	len = 0;//DONT FORGET TO INITIALIZE!!! = 0
 	char *res;//string for return
 
-	if (n == -2147483648)//INT_MIN is special because its absolute value exceeds the range of representable positive values for the int type
+	if (num == -2147483648)//INT_MIN is special because its absolute value exceeds the range of representable positive values for the int type
 		return("-2147483648");//return directly
-	if (n <= 0)//for '-' or '0'
+	if (num <= 0)//for '-' or '0'
 		len++;
 	while(num != 0)
 	{
-		num = num / 10;//divide / 10 to know length
+		num = num / 10;
 		len++;
 	}
 	res = (char*)malloc(sizeof(char) * (len + 1));// +1 for '/0'
 	if (res == NULL)
 		return(NULL);//checking allocation
 	res[len] = '\0';
-	num = n;//actualizinng num after length manipulation
+	num = nbr;//actualizinng num after length manipulation
 
-	if (n == 0)//!!! check integers not chars
+	if (num == 0)//!!! check integers not chars
 		res[0] = '0';
-	if (n < 0)//!!! check integers not chars
+	if (num < 0)//!!! check integers not chars
 	{
 		num = -num;
 		res[0] = '-';//writing '-' symbol to our string array
