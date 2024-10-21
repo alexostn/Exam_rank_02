@@ -36,7 +36,7 @@ void str_capitalizer (char *str)
     {
         if (str[i] >= 'A' && str[i] <= 'Z')
             str[i] = str[i] + 32;
-        if ((str[i] >= 'a' && str[i] <= 'z') && str[i - 1] <= 32)// if goes out of array try && (i == 0 || str[i - 1] <= 32))
+        if ((str[i] >= 'a' && str[i] <= 'z') && (i == 0 || str[i - 1] <= 32))// i == 0 to do not go out of array in str[i - 1] 
             str[i] = str[i] - 32;
         write (1, &str[i++], 1);
     }
@@ -56,6 +56,5 @@ int main (int ac, char **av)
     }
 	else if (ac == 1)//if it is not needed remove
 		write(1, "\n", 1);
-    write (1, "\n", 1);
     return (0);
 }
