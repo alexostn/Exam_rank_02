@@ -2,7 +2,8 @@
 #include <stdlib.h>  // Include the standard library for using malloc, free, and other functions
 
 // Function to sort a singly linked list
-t_list *sort_list(t_list* lst, int (*cmp)(int, int)) {
+t_list *sort_list(t_list* lst, int (*cmp)(int, int)) 
+    {
     int swap;               // Variable for temporarily storing data during the swap
     t_list *start;         // Pointer to the start of the list for returning
 
