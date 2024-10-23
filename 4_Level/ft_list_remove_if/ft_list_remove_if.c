@@ -72,6 +72,7 @@ void ft_list_remove_if(t_list **begin_list, void *data_ref, int (*cmp)())
     }
     else
     {
+        //cur = *begin_list; optional
         // If the data does not match, continue processing the next element
         ft_list_remove_if(&cur->next, data_ref, cmp);//ft_list_remove_if(&(*begin_list)->next, data_ref, cmp); would work as well
     }
