@@ -14,6 +14,7 @@ Your function must be declared as follows:
 
 char    **ft_split(char *str);
 */
+// FULL VERSION
 #include <stdlib.h>
 #include <stdio.h>
 
