@@ -9,7 +9,7 @@ char **ft_split(char *str)
     int i = 0;
 
     // Skip initial spaces and tab characters
-    while (str[i] == ' ' || (str[i] >= 9 && str[i] <= 13))
+    while (str[i] == ' ' || (str[i] >= 9 && str[i] <= 13))//!!!works with this precision only
         i++;
 
     int x = 0; // Index for word in the array
@@ -28,7 +28,7 @@ char **ft_split(char *str)
         i++;
 
         // If a space or tab is encountered, the word ends
-        if (str[i] == ' ' || (str[i] >= 9 && str[i] <= 13))
+        if (str[i] == ' ' || (str[i] >= 9 && str[i] <= 13))//!!!works with this precision only
         {
             // Null-terminate the current word
             arr[x][y] = '\0';
