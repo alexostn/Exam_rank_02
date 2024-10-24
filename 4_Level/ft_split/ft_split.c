@@ -1,4 +1,4 @@
-//SIMPLIFIED VERSION FOR EXAM
+//SIMPLIFIED VERSION
 #include <stdlib.h>
 
 char    **ft_split(char *str)
