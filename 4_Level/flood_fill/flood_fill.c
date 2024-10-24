@@ -19,5 +19,5 @@ void	fill(char **tab, t_point size, t_point cur, char to_fill)
 
 void  flood_fill(char **tab, t_point size, t_point begin)
 {
-	fill(tab, size, begin, tab[begin.y][begin.x]);
+	fill(tab, size, begin, tab[begin.y][begin.x]);//When we pass tab[begin.y][begin.x], it is not the coordinates, but access to the array element at the coordinates begin.y and begin.x
 }
