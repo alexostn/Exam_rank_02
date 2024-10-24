@@ -55,7 +55,7 @@ $>
 void ft_list_remove_if(t_list **begin_list, void *data_ref, int (*cmp)())
 {
 	if (begin_list == NULL || *begin_list == NULL)
-		return;
+		return;//goes out of function cause it is void
 	if ((*cmp)((*begin_list)->data, data_ref) == 0)
 	{
 		t_list *tmp = *begin_list;
