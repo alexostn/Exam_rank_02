@@ -4,7 +4,7 @@
 
 char    **ft_split(char *str)
 {
-    char **arr = malloc(sizeof(char *) * 10000000);
+    char **arr = malloc(sizeof(char *) * 10000000);//ANY HUGE AMMOUNT :)
     int	i = 0;
 
     //skip spaces
@@ -15,7 +15,7 @@ char    **ft_split(char *str)
     while (str[i])
     {
         if (arr[x] == NULL)
-            arr[x] = malloc(sizeof(char) * 1000000);
+            arr[x] = malloc(sizeof(char) * 1000000);//ANY HUGE AMMOUNT :)
         arr[x][y] = str[i];
         y++;
         i++;
