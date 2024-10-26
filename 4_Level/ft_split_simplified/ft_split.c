@@ -1,13 +1,13 @@
 //SIMPLIFIED VERSION
 #include <stdlib.h>
-#include <stdio.h>
 
 char **ft_split(char *str)
 {
     // Allocate memory for a large number of string pointers
-    char **arr = malloc(sizeof(char *) * 10000000);
     int i = 0;
-
+    char **arr = malloc(sizeof(char *) * 10000000);
+	if (arr == NULL)
+		return (NULL);
     // Skip initial spaces and tab characters
     while (str[i] == ' ' || (str[i] >= 9 && str[i] <= 13))//!!!works with this precision only
         i++;
@@ -41,15 +41,13 @@ char **ft_split(char *str)
         }
     }
 
-    // Null-terminate the last word
-    arr[x][y] = '\0';
-
     // Mark the end of the array with a NULL pointer
     arr[x + 1] = NULL;
 
-    return arr;
+    return (arr);
 }
 
+// #include <stdio.h>     
 // int main()
 // {
 //     // Test string with multiple lines and words
