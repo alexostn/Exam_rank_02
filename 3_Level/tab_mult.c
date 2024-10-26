@@ -74,7 +74,7 @@ int	main(int ac, char **av)
 	{
 		int i = 1;
 		int num = ft_atoi(av[1]);
-		if (num > 0 && num <= 238609294)//"parameter will always be a strictly positive number && that fits in an int (MAX_INT devided by 9)"
+		if (num > 0 && num <= 238609294)//"parameter will always be a strictly positive number && that fits in an int (MAX_INT devided by 9)" getconf INT_MAX and echo "2147483647 / 9" | bc (in terminal:)
 		{
 			while (i <= 9)
 			{
