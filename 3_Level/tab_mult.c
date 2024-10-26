@@ -42,7 +42,7 @@ $>
 #include <unistd.h>
 
 
-int	ft_atoi(char *ch)
+int	ft_atoi(const char *ch)
 	{
 		int res = 0;//do not forget initialize, that matters!!!
 
@@ -74,7 +74,7 @@ int	main(int ac, char **av)
 	{
 		int i = 1;
 		int num = ft_atoi(av[1]);
-		if (num > 0 && num <= 238609183)//"parameter will always be a strictly positive number && that fits in an int (MAX_INT devided by 9)"
+		if (num > 0 && num <= 238609294)//"parameter will always be a strictly positive number && that fits in an int (MAX_INT devided by 9)"
 		{
 			while (i <= 9)
 			{
