@@ -1,3 +1,4 @@
+//MODIFICATION OF THIS VERSION WILL BE USEFULL IN PUSH_SWAP PROJECT
 #include <stdlib.h>
 #include <stdio.h>
 
